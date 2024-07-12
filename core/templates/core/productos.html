@@ -1,0 +1,101 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+
+  <!-- Formulario productos -->
+  <h1 style="Color: white;">Mantenedor de Productos</h1>
+  <div class="container mb-5">
+    <div class="mt-5 card mx-auto">
+      <div style="border: 10px solid; border-color: black;" class="col-lg-12">
+        <div>
+          
+          <form id="form" method="POST" enctype="multipart/form-data">
+            <div>
+              <div class="row p-3">
+                <!-- Formulario de productos -->
+                <div class="col-lg-6 card-body">
+                  {% csrf_token %}
+                  {{ form|as_bootstrap_form }}
+                </div>
+                <!-- AREA DE CUADRO DE IMAGEN: Imagen del producto (VER COMENTARIO "CUADRO DE IMAGEN" en script.js) -->
+                <div class="col-lg-6 card-body d-flex flex-column justify-content-center align-items-center">
+                  {% if form.imagen.value %}
+                    <img id="cuadro-imagen" src="/media/{{ form.imagen.value }}">
+                  {% else %}
+                    <img id="cuadro-imagen" style="width: 300px;" src="{% static 'core/img/Producto-sin-imagen.png' %}">
+                  {% endif %}
+                </div>
+                <!-- AREA DE BOTONES -->
+                <div class="mt-2 mb-3 text-center">
+                  <input class="btn btn-primary" type="submit" value="Guardar">
+                  <a class="btn btn-secondary" href="{% url 'productos' 'crear' '0' %}"> Nuevo </a>
+                  <!-- AREA DE BOTON DE SELECCIONAR IMAGEN: Reemplaza el botón "Seleccionar archivo" por otro con Bootstrap (VER COMENTARIO "BOTON IMAGEN" en script.js) -->
+                  <button class="btn btn-primary" onclick="event.preventDefault(); document.getElementById('id_imagen').click();"> Seleccionar imagen </button>
+                  {% if form.instance.id %}
+                    <a class="btn btn-danger"  href="{% url 'productos' 'eliminar' form.instance.id %}"> Eliminar </a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  {% comment %}
+  {% if productos %}
+  {% endcomment %}
+  
+  <div style="border: 10px solid; border-color: black;" class="card p-3 mb-5 mx-5 table-responsive">
+    <table id="tabla-principal" class="table table-hover table-light table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th> ID </th>
+                <th> Categoría </th>
+                <th> Nombre </th>
+                <th> Descripción </th>
+                <th> Precio </th>
+                <th> %Subs </th>
+                <th> %Oferta </th>
+                <th> Imagen </th>
+                <th> Acciones </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for producto in productos %}
+              <td>{{producto.id}}</td>
+              <td>{{producto.categoria}}</td>
+              <td>{{producto.nombre}}</td>
+              <td>{{producto.descripcion}}</td>
+              <td>{{producto.precio|formatear_dinero}}</td>
+              <td>{{producto.descuento_subscriptor|formatear_porcentaje}}</td>
+              <td>{{producto.descuento_oferta|formatear_porcentaje}}</td>
+              <td>
+                  <img src="/media/{{ producto.imagen }}" class="producto-sm" alt="">
+              </td>
+              <td>
+                <div class="btn-group" role="group">
+                  <div><a href="{% url 'productos' 'actualizar' producto.id %}" class="btn btn-primary btn-sm mx-1"> Editar </a></div>
+                  <form method="delete">
+                      <a href="{% url 'productos' 'eliminar' producto.id %}" class="btn btn-danger btn-sm mx-1 "> Eliminar </a>
+                  </form>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+  {% comment %}     
+  {% endif %}
+  {% endcomment %} 
+
+{% endblock content %}
+
+{% block script %}
+  <script src="{% static 'core/js/productos.js' %}"></script>
+{% endblock script %}

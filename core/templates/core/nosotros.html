@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+  
+<h1 class="container-text1">Nosotros</h1>
+<div class="container-text2 card p-4">
+    <p>En DigiGames, nos enorgullece ser una tienda líder en la industria de los videojuegos en Chile. Con más de una década de experiencia apasionada en este emocionante rubro, hemos consolidado un legado de excelencia y compromiso con nuestros clientes.</p>
+    <p>Desde nuestros modestos inicios, nos hemos dedicado a proporcionar a los aficionados chilenos de los videojuegos una experiencia de compra única y satisfactoria. Nuestro compromiso con la calidad, la variedad y el servicio al cliente nos ha permitido crecer y convertirnos en un referente en el mercado local.</p>
+    <p>En DigiGames, no solo vendemos videojuegos; creamos experiencias. Nos esforzamos por mantenernos al tanto de las últimas tendencias y lanzamientos del mundo de los videojuegos, asegurando que nuestros clientes siempre tengan acceso a los títulos más emocionantes y buscados.</p>
+    <p>Nuestro equipo está formado por apasionados jugadores y expertos en la industria, listos para brindar asesoramiento personalizado y recomendaciones basadas en conocimiento sólido. Creemos en la importancia de construir relaciones sólidas con nuestros clientes, basadas en la confianza y la satisfacción.</p>
+    <p>Con una amplia gama de productos, que incluye desde los clásicos hasta las últimas novedades en hardware y accesorios, DigiGames se compromete a satisfacer las necesidades de cada tipo de jugador, ya sea casual, entusiasta o profesional.</p>
+    <p>Nuestra misión va más allá de vender videojuegos; nos esforzamos por fomentar una comunidad vibrante y apasionada en torno a esta forma de entretenimiento. Organizamos eventos, torneos y actividades que reúnen a jugadores de todas las edades y habilidades para compartir su amor por los videojuegos.</p>
+    <p>En DigiGames, creemos en el poder de los videojuegos para inspirar, entretener y conectar a las personas. Estamos comprometidos a seguir siendo un pilar en la industria del entretenimiento en Chile y a seguir ofreciendo experiencias de juego extraordinarias a nuestros clientes durante muchos años más.</p>
+</div>
+<div class="row">
+<div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+        <img src={% static 'core/img/nosotros1_hombre.avif' %} class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title">Jesus Marquez</h4>
+            <p class="card-text">Servicio al cliente</p>
+            <a href="#" class="btn btn-primary">Correo de Contacto</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+        <img src={% static 'core/img/nosotros1_nombre2.avif' %} class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title">Adolfo Cartes</h4>
+            <p class="card-text">Administrador</p>
+            <a href="#" class="btn btn-primary">Correo de Contacto</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+        <img src={% static 'core/img/nosotros1_hombre3.jpg' %} class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title">Lucas Labrín</h4>
+            <p class="card-text">Servicio al cliente</p>
+            <a href="#" class="btn btn-primary">Correo de Contacto</a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

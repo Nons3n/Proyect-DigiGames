@@ -1,0 +1,497 @@
+/* h1 {
+  font-size: x-large;
+  color: blue !important;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  text-align: center;
+} */
+.ha{
+ color:white
+}
+th {
+  vertical-align: top;
+  /* background-color: lightgray !important; */
+}
+
+input, textarea, select {
+  border-color: darkgray !important; /* Cambia "red" al color deseado */
+}
+
+.margen-carrusel {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.margen-titulo {
+  margin-left: 50px;
+}
+
+.margen-footer {
+  margin: 10px;
+}
+
+.margen-footer2 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.index_disponible {
+  color: green;
+  font-weight: bolder;
+}
+
+.index_precio {
+  color: blue;
+  font-weight: 500;
+}
+
+.index_subscrito {
+  color: red;
+  font-weight: 500;
+}
+
+.index_stock {
+  color: green;
+  font-weight: bold;
+}
+
+.fondo {
+  background-color: rgba(127, 157, 255, 0.207);
+}
+
+.align-center2 {
+  display: flex;
+  justify-content: center;
+}
+
+.align-right2 {
+  display: flex;
+  justify-content: right;
+}
+
+.br2 {
+  line-height: 4;
+}
+
+.juegos {
+  display: flex;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.container2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container3 {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+
+.caja {
+  width: 500px;
+  height: 100%;
+}
+
+.product-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.precios-totales {
+  padding: 1rem;
+  border: 1px solid rgb(195, 195, 195);
+  display: flex;
+  justify-content: end;
+  background-color: white;
+}
+
+.botones-totales {
+  padding: 1rem;
+  display: flex;
+  justify-content: end;
+}
+
+.quitar-linea {
+  text-decoration: none;
+}
+
+.in-line {
+  display: inline-block;
+}
+
+footer {
+  margin-top: auto;
+  justify-content: end;
+  bottom: 0;
+  width: auto;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.link-negro {
+  color: black;
+}
+
+.promocion {
+  background-color: #fc9aa2;
+  color: #891420;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 0.25rem;
+  width: 60rem;
+}
+
+.centrar-promo {
+  display: flex;
+  justify-content: center;
+}
+
+#boleta_tabla_estados td {
+  text-align: center;
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.error {
+  color: red;
+}
+
+.container-fluid{ 
+    background-color: beige;
+}
+.nav-link {
+    font-size: 22px;
+}
+.form-control{ 
+    width: 200px;
+}
+.container-text1  { 
+    position: relative;
+    color: white;
+    left: 2px;
+    
+}
+.container-text2 { 
+    position: relative;
+    color: white;
+    top: -8px;
+    left: 2px;
+    font-size: 21px;
+}
+.fotocont1{
+    position: relative;
+    border: 4px solid #000;
+    height: 258px;
+    width: 258px;
+    top: 70%;
+    left: 1%;
+}
+.foto1 {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    top: 0%;
+    left: 0%;
+}
+.nombre1{
+    position: relative;
+    color: white;
+    top: -260px;
+    left: 16%;
+    
+}
+span{
+    font-weight: bolder;
+}
+.cargo1{
+    position: relative;
+    color: white;
+    top: -260px;
+    left: 16%;
+}
+.correo1{
+    position: relative;
+    color: white;
+    top: -260px;
+    left: 16%;
+    font-size: 124%;  
+}
+.fotocont2{
+    position: relative;
+    border: 4px solid #000;
+    height: 258px;
+    width: 258px;
+    top: -370px;
+    left: 35%;
+}
+.foto2{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    top: 0%;
+    left: 0%;
+}
+.nombre2{
+    position: relative;
+    color: white;
+    top: -630px;
+    left: 50%;
+}
+.cargo2{ 
+    position: relative;
+    color: white;
+    top: -630px;
+    left: 50%;
+    font-size: 150%;
+}
+.correo2{ 
+    position: relative;
+    color: white;
+    top: -630px;
+    left: 50%;
+    font-size: 124%;
+}
+.fotocont3{
+    position: relative;
+    border: 4px solid #000;
+    height: 258px;
+    width: 258px;
+    top: -738px;
+    left: 68%;
+}
+.foto3{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    top: 0%;
+    left: 0%; 
+}
+.nombre3{
+    position: relative;
+    color: white;
+    top: -999px;
+    left: 83%;  
+}
+.cargo3{
+    position: relative;
+    color: white;
+    top: -999px;
+    left: 83%;
+    font-size: 135%; 
+}
+.correo3{
+    position: relative;
+    color: white;
+    top: -999px;
+    left: 83%;
+    font-size: 124%;
+}
+.card{
+    margin:10px;
+}
+.row.contenedor-cartas {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+}
+/* Estilos personalizados */
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: none;
+}
+
+h2{
+    font-size: 80px;
+}
+
+.card-title {
+    color: #333;
+}
+
+.form-control {
+    border-color: #ced4da;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pie {
+    bottom: 0;
+    padding: 0px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+/*------------------------------*/
+
+body {
+display: flex;
+flex-direction: column;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.cuadro_login {
+    border: 1px solid green;
+    padding: 10px;
+    width: 300px;
+    margin: auto;
+}
+
+.boton_ingresar {
+    width: 200px;
+    margin: auto
+}
+
+.index_disponible {
+    color: green;
+    font-weight: bolder;
+}
+
+.index_precio {
+    color: blue;
+    font-size: 20px;
+}
+
+.index_subscrito {
+    color: red;
+    font-size: 20px;
+}
+
+.index_stock {
+    color: green;
+    font-weight: bolder;
+}
+
+.ficha_foto {
+    height: 100%;
+    float: right;
+    border: 3px solid gray;
+}
+
+.ficha_titulo {
+    font-size: 60px;
+    font-weight: bolder;
+}
+
+.ficha_disponible {
+    color: green;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.ficha_precio {
+    font-size: 40px;
+}
+
+.registro_foto {
+    height: 200px;
+}
+
+#boleta_tabla_estados {
+    float: right;
+}
+
+#boleta_tabla_estados td {
+    text-align: center;
+    font-weight: bold;
+    padding-right: 50px;
+}
+
+/*prueba*/
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.footer {
+    background-color: black !important;
+    color: white;
+    margin-top: auto;
+}
+
+.footer a {
+    color: white;
+}
+label {
+    color: black;
+}
+p{
+    color: black;
+    
+}
+.main-content {
+    margin-bottom: 50px; /* Ajusta este valor según sea necesario */
+}
+/* Validadores */ 
+.btn-ancho-fijo {
+    width: 120px;
+}
+
+/* Etiquetas en negrita */
+label {
+    font-weight: bolder;
+}
+
+/* CSS de letra de error de JQuery Validate, para que
+    aparezcan en rojo los errores de campos  */
+.error {
+    color: red;
+    font-weight: bolder;
+}
+/* Fin validadores */
+
+/* Descomenta el selector div a continuación si quieres ver la diagramación de tu página */
+/* div {
+  border: 1px solid blue;
+} */
+
+

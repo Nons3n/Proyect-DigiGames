@@ -1,0 +1,99 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="m-5" >
+  <h1 style="Color: white;">Mantenedor de Usuarios</h1>
+  <div class="container card" style="border: 10px solid; border-color: black;">
+    <form id="form" method="POST" enctype="multipart/form-data" >
+
+      <div class="row">
+        <!-- Formulario de Usuarios -->
+        <div class="col-lg-6 card-body">
+          {% csrf_token %}
+          {{form_usuario|as_bootstrap_form}} <br>
+          {{form_perfil|as_bootstrap_form}} <br>
+        </div>
+        <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center"> 
+          {% if form_perfil.imagen.value %}
+            <img id="cuadro-imagen" src="/media/{{ form_perfil.imagen.value }}">
+          {% else %}
+            <img id="cuadro-imagen" src="{% static 'core/img/sin-imagen.png' %}">
+          {% endif %}
+        </div>
+        <div class="my-4 text-center">
+          <button type="submit" class="btn btn-primary"> Guardar </button>
+          <a href="{% url 'usuarios' 'crear' '0' %}" class="btn btn-primary"> Nuevo </a>
+          <button onclick="event.preventDefault(); document.getElementById('id_imagen').click();" class="btn btn-primary"> Seleccionar imagen </button>  
+          {% if form_usuario.instance.id %}
+            <a class="btn btn-primary" href="{% url 'usuarios' 'eliminar' form_usuario.instance.id %}"> Eliminar </a>
+          {% endif %}
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <!-- AREA DE TABLA DE USUARIOS -->
+  {% comment %} 
+  {% if usuarios %} 
+  {% endcomment %}
+
+  <div class="card p-3 mb-5 mx-5 table-responsive" style="border: 10px solid; border-color: black;">
+    <table id="tabla-principal" class="table table-hover table-light table-striped table-bordered" >
+      <thead>
+        <tr>
+          <th> ID </th>
+          <th> Cuenta </th>
+          <th> Tipo usuario </th>
+          <th> Nombre </th>
+          <th> Apellidos </th>
+          <th> Correo </th>
+          <th> RUT </th>
+          <th> Subscrito </th>
+          <th> Imagen </th>
+          <th> Acciones </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for usuario in usuarios %}
+          
+
+          <td>{{usuario.id}}</td>
+          <td>{{usuario.username}}</td>
+          <td>{{usuario.perfil.tipo_usuario}}</td>
+          <td>{{usuario.first_name}}</td>
+          <td>{{usuario.last_name}}</td>
+          <td>{{usuario.email}}</td>
+          <td>{{usuario.perfil.rut}}</td>
+          
+            <td> {% if usuario.perfil.subscrito %} Sí {% else %} No {% endif %} </td>
+            <td>
+              <img src="/media/{{ usuario.perfil.imagen }}" class="usuario-sm" alt="">
+            </td>
+            <td>
+              <div class="btn-group">
+                <div><a href="{% url 'usuarios' 'actualizar' usuario.id %}" class="btn btn-primary btn-sm"> Editar </a></div>
+                <div><a href="{% url 'usuarios' 'eliminar' usuario.id %}" class="btn btn-danger btn-sm mx-1"> Eliminar </a></div>
+                <form action="{% url 'cambiar_password' %}" method="post" id="form_{{ usuario.username }}">
+                  {% csrf_token %}
+                  <input type="hidden" id="username" name="username" value="{{ usuario.username }}">
+                  <button class="btn btn-info btn-sm" id="id_generar_password" onclick="document.getElementById('form_{{ usuario.username }}').submit();"> Contraseña </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% comment %} 
+  {% endif %} 
+  {% endcomment %}
+{% endblock content %}
+  
+{% block script %}
+  <script src="{% static 'core/js/usuarios.js' %}"></script>
+{% endblock script %}
+    

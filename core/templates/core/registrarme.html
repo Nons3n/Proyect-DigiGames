@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+
+    <p></p>
+    <h1 style="color: white">Registrarse</h1>
+    <div class="main-content container">
+    <div style="background-color: white; border-radius: 8px; padding: 40px;" class="form-container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Inicio form -->
+                <form id="form" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="row m-3">
+                    <!-- AREA DE DATOS BASICOS: username, nombre, apellidos, correo y contraseñas -->
+                    <div class="col-lg-6 col-sm-12 col-md-7">
+                      {{ form_usuario|as_bootstrap_form:'help_text_visible=False'}}
+                      <!-- AREA DE DATOS DE PERFIL: rut, dirección y subscrito (VER COMENTARIO "CHECKBOX SUBSCRITO" en script.js)  -->
+                      {{ form_perfil|as_bootstrap_form:'help_text_visible=False'}}
+                    </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <p></p>
+                            <p></p>
+                            <div class="justify-content-center align-items-center">
+                              <div class="row">
+                                <div class="col-sm-12" >
+                                  <img style=" width: 350px; " id="cuadro-imagen" name="cuadro-imagen" src="{% static 'core/img/Perfil.jpg' %}">
+                                </div>
+                              </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label"></label>
+                                <input class="form-control" type="file" id="formFile">
+                              </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p></p>
+                        <button type="submit" class="btn btn-primary btn-block m-1">Registrar</button>
+                        <button onclick="event.preventDefault(); document.getElementById('id_imagen').click();" class="btn btn-primary btn-block m-1"> Seleccionar imagen </button>
+                        <button id="id_btnLimpiar" type="reset" class="btn btn-secondary btn-ancho-fijo">Limpiar</button>
+                    </div>
+                </form>
+                <!-- Fin form -->
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" integrity="sha512-WMEKGZ7L5LWgaPeJtw9MBM4i5w5OSBlSjTjCtSnvFJGSVD26gE5+Td12qN5pvWXhuWaWcVwF++F7aqu9cvqP0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'core/js/validador.js' %}"></script>
+    <script src="{% static 'core/js/registrarme.js' %}"></script>
+{% endblock content %}

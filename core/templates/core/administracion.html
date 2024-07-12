@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content %}
+    <br>
+    <h1 style="color: white;">Administrar Tienda</h1>
+    <br>
+    <style>
+        .btn a {
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="container text-center">
+        <button class="btn btn-primary"><a style="color: white; font-size: 25px;" href={% url 'usuarios' 'crear' '0' %}>Mantenedor de usuarios</a></button>
+        <br>
+        <br>
+        <button class="btn btn-primary"><a style="color: white; font-size: 25px;" href={% url 'productos' 'crear' '0' %}>Mantenedor de productos</a></button>
+        <br>
+        <br>
+        <button class="btn btn-primary"><a style="color: white; font-size: 25px;" href={% url 'ventas' %}>Historial de ventas</a></button>
+        <br>
+        <br>
+        <button class="btn btn-primary"><a style="color: white; font-size: 25px;" href={% url 'bodega' %}>Mantenedor de bodega</a></button>
+    </div>
+    <script src="{% static 'core/js/scripts.js' %}"></script>
+
+{% endblock content %}
